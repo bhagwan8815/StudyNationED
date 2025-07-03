@@ -59,7 +59,7 @@ git clone https://github.com/bhagwan8815/StudyNationED.git
 
 
 ### Run the Project
-```bash
+
 npm run dev
 
 
