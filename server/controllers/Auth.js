@@ -64,7 +64,7 @@ exports.sendOTP = async (req,res)=>{
         const result = await OTP.create(otpPayload); // createAt deafult date
          */
         const otpPayload = { email, otp };
-        const result = await OTP.create(otpPayload); // createAt deafult date
+        const result = await OTP.create(otpPayload); //yaha par OTP.create function call hone se pahale apna pre save middleware or hook chal jayeha and vo otp send kar dega user ke email par ,
       
         res.status(200).json({
             success: true,
