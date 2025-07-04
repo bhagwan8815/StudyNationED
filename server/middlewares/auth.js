@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-
+//auth middleware for authentication check valid token or not 
 exports.auth = async(req,res,next)=>{
     try
     {
@@ -44,6 +44,8 @@ exports.auth = async(req,res,next)=>{
     }
 }
 
+//this middleware for check the which route of a role student can access.
+//isStudent and isInstructor middleware use for authorization 
 exports.isStudent = async(req,res,next)=>{
     try
     {
