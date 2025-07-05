@@ -30,7 +30,7 @@ exports.resetPasswordToken = async (req, res) => {
                 token: token,
                 resetPasswordToken: Date.now() + 10*60*1000,
             },
-            {new : true});   // new : true return the updtaed doc
+            {new : true});   // new : true ---->return the updtaed document from the database .
 
 
         // create link

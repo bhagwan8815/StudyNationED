@@ -5,12 +5,12 @@ require("dotenv").config();
 exports.auth = async(req,res,next)=>{
     try
     {
-        // fecth token from req and authorize it
+        // fecth token from req and authorize it. here the best way to define and fetch token is Bearer.
         const token = req.cookies.jwt 
                       || req.body.token 
                       || req.header("Authorization").replace("Bearer ","");
 
-        console.log("Token of userrr : ", token);
+        console.log("Token of user : ", token);
         if(!token)
         {
             res.status(401).json({
@@ -33,6 +33,7 @@ exports.auth = async(req,res,next)=>{
             })
         }
 
+        // token check karne ke baad it means authenicatioin check karne ke baad , next middleware chalega isliye next() likha he niche ki line me . and ye middleware define he routes ki file me 
         next();
      
     }catch(err)
