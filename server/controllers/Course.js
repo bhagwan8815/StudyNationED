@@ -15,6 +15,7 @@ exports.createCourse = async (req, res) => {
 
         // fetch details
         const {courseName, courseDescription , price, whatWillYouLearn, category, tags, status, instructions} = req.body;
+        //get thumbnail from res.files.thumbnail
         const thumbnail = req.files.thumbnail;
 
         // validate

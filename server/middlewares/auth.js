@@ -21,8 +21,11 @@ exports.auth = async(req,res,next)=>{
         // verify this token 
         try
         {
+            // The payload contains the user information (like id, email, accountType) that was included at the time of token creation during login.
             const payload = jwt.verify(token, process.env.JWT_SECRET);
-            req.user = payload;
+           // Attach the decoded JWT payload to the request object as "req.user".
+             // This allows access to user information (like id, email, accountType) in later middleware or routes
+            req.user = payload;  //this will pass user info in next middleware or protected route. 
             console.log("User type : ",req.user.accountType);
 
         }catch(err)
@@ -108,3 +111,38 @@ exports.isAdmin = async(req,res,next)=>{
         })
     }
 }
+
+
+/**
+ 
+🔐 JWT Auth Flow for Protected Routes (Step by Step)
+
+
+ [1] User Login Karega ➝ JWT Token generated hoga  ➝Server sent this token to client(fronted) via  (cookie or token)
+           --->hamne es token ke saath user ki info bhi send kar di he without password.
+
+[2] Client sends request to protected route ➝ Token sent via header/cookie. 
+this is protected route ----->        router.put("/changePassword", auth, changePassword);
+
+[3] Middleware (auth.js):-->ye user ki identiti check karega verify the token . and token ko decode (payload ) karega . and es decode(payload) ko jo proteced routes ki req aayi thi usme add kar dega via ----> req.user= decode; jisse next middleware and routes ese use kar ppaye.
+      ✓ Gets token
+      ✓ Verifies token
+      ✓ Adds decoded payload to req.user
+
+[4] Route handler:
+      ✓ Accesses req.user
+      ✓ Fetches more data if needed
+      ✓ Sends response
+
+
+
+
+
+
+
+
+
+
+
+
+ */
