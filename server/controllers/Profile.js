@@ -37,9 +37,25 @@ exports.updateProfile = async (req, res) => {
         const profileID = userDetails.profile; // udr ID he store hai
         console.log("Profile Id : ",profileID);
         
-        //find object of profile with it update and then save in DB or directly findByIDandUPdate
+        //find object of profile with it and update, and then save in DB or directly findByIDandUPdate
+        /**NOTE: YA TO PROFILEID SE PROFILEDETAILS NIKAL KAR USME UPDATE KAR LO AND SAVE() KAR LO 
+         // YAA FIR DIRECT FINDBYIDANDUPDATE FUNCTION KA USE KARKE AK SAATH KAR LO UPDATE.
+        
+         * ****First way*******
+         const profileDetails = await Profile.findById(profileId);
+
+         profileDetails.gender = gender;
+         profileDetails.dataOfBirth = dataOfBirth;
+         profileDetails.about=about;
+         profileDetails.contactNumber = contactNumber;
+
+         //Now save() the above data into objects
+          await profileDetails.save();
+
+         */
 
         // find Object 
+        // * ****Second way*******
         const profileObject = await Profile.findByIdAndUpdate(
             {_id: profileID},
             {
@@ -214,7 +230,7 @@ exports.getEnrolledCourses = async (req, res) => {
         let userDetails = await User.findById({
             _id: userId,
         })
-        .populate({
+        .populate({           //YAHA populate isliye kiya he kyuki hame user ki information chahiye and user ki information user and profile dono me padi he but yaha par hamare pass user ki id he to user ki information mil jayegi and hamre user model me profile ki only id store he to hame usko populate karna padega tabhi hame pura data milega smjha bhai.
             path: "courses",
             populate:{
                 path:"courseContent",

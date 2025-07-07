@@ -11,6 +11,8 @@ const SubSection = require("../models/SubSection");
 // add section to course schema
 
 
+//Note:--> Jab bhi new section create karegne iski objectid ko course me store karna padega.
+
 exports.createSection = async(req,res) => {
     try
     {
@@ -36,7 +38,7 @@ exports.createSection = async(req,res) => {
                     courseContent:newSection._id,
                 }
             },
-            {new : true}
+            {new : true}    // taki hame new docuemnt mile
         ).populate({
 			path: 'courseContent',
 			populate: {
