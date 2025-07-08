@@ -16,7 +16,7 @@ exports.capturePayment = async (req, res) => {
         const {courses} = req.body;
         const userId = req?.user?.id;
 
-        console.log("nsdlnksfnlndffb: ", courses, userId);
+        console.log("Courseid and userid is : ", courses, userId);
         
         if(!courses || !userId) {
             return res.status(401).json({
@@ -38,8 +38,10 @@ exports.capturePayment = async (req, res) => {
                     return res.status(401).json({success:false, message: "Could not find course"});
                 }
 
-                // ky aye course already purchased to nahi --> userId wale student k dwara
-                const uid =  new mongoose.Types.ObjectId (userId);
+                // check the user is already enrolled in the course (means usne pahale se so payment ni kar rakha )
+                 //hamari userid string types ki he and hamne databasae me course ke model me enrolled students ki userid object types me store karva rakhi. 
+                 //to niche ki line me ham userid ko string se mongoose ke objectid me convert kar rahe he .
+                 const uid =  new mongoose.Types.ObjectId (userId);
                 if(course.studentsEnrolled.includes(uid))
                 {
                     return res.status(200).json({success:false, message:"Student already enrolled in this course." })
@@ -251,7 +253,7 @@ exports.sendPaymentSuccessEmail = async(req, res) => {
 //             currency: "INR",
 //             receipt: Math.random(Date.now()).toString(),
 //             notes: {
-//                 courseId: courseId,
+//                 courseId: courseId,  //this is used when we will do signature verificaation
 //                 userId: userId
 //             }
 //         }
