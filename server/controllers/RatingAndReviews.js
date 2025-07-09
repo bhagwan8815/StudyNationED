@@ -52,7 +52,7 @@ exports.createRatingAndReviews = async (req, res) => {
                 message:"User already feed rating and reviews"
             })
         }
-        // create RaR 
+        // create RatingAnd Review
         const ratingAndReview = await RatingAndReviews.create(
             {
                 user: userId,
@@ -202,7 +202,7 @@ exports.getRatingAndReviewsByCourseID = async (req, res) => {
             })
         }
 
-        // BUG check karna line 113
+        //if there is any issue we will resolve it  in line 113
         const ratingAndReviews = course.ratingAndReviews; // this is an ID
 
 
