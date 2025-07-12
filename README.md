@@ -7,7 +7,7 @@ StudyNotion is a full-stack ed-tech platform where users can browse, purchase, a
 ## 🚀 Features
 
 - 👤 **User Authentication** (Signup/Login with JWT)
-- 🔒 **Role-Based Access** (Student and Instructor)
+- 🔒 **Role-Based Access** (Student ,Instructor and Admin)
 - 🎥 **Course Creation** (Title, Description, Price, Videos)
 - 🛒 **Course Purchase & Checkout** (Razorpay Integration)
 - 📚 **My Courses Dashboard** (Progress Tracking)

@@ -3,7 +3,7 @@ import "../../../App.css"
 
 const HighlightText = ({text}) => {
   return (
-        <span className='highlightText' >{ text}</span>
+        <span className='highlightText ' >{ text}</span>
   )
 }
 

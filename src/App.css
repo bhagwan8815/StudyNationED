@@ -30,13 +30,13 @@ html , body {
   }
   } 
 
-.highlightText {
+ .highlightText {
         font-size: 2.25rem;
         background: -webkit-linear-gradient(#1FA2FF, #A6FFCB);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-}
 
+ }
 .orangeGradient {
         font-size: 2.25rem;
         background: -webkit-linear-gradient(#ff6a1f, #f1c639);
