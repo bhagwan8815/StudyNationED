@@ -28,6 +28,7 @@ const Footer = () => {
     <div className="bg-richblack-800">
       
       <div className="flex lg:flex-row gap-8 items-center justify-between w-11/12 max-w-maxContent text-richblack-400 leading-6 mx-auto relative py-14">
+
         <div className="border-b w-[100%] flex flex-col lg:flex-row pb-5 border-richblack-700">
           {/* Section 1 */}
           <div className="lg:w-[50%] flex flex-wrap flex-row justify-between lg:border-r lg:border-richblack-700 pl-3 lg:pr-5 gap-3">
@@ -152,8 +153,11 @@ const Footer = () => {
             })}
           </div>
         </div>
+        
       </div>
 
+
+    {/* down part of footer privacy and copyright section  */}
       <div className="flex flex-row items-center justify-between w-11/12 max-w-maxContent text-richblack-400 mx-auto  pb-14 text-sm">
         {/* Section 1 */}
         <div className="flex justify-between lg:items-start items-center flex-col lg:flex-row gap-3 w-full">
@@ -175,8 +179,10 @@ const Footer = () => {
               );
             })}
           </div>
-
-          <div className="text-center">Developed with ❤️ BhagwanSingh Rana © 2024 StudyNotion</div>
+   
+          <div 
+              className="text-center">Developed by BhagwanSingh Rana❤️  © 2024 StudyNotion
+          </div>
         </div>
       </div>
 

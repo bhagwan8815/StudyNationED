@@ -16,12 +16,15 @@ function CodeTTB({heading, subheading,ctabtn1, ctabtn2 }) {
 
         <div className='mt-10 flex flex-row gap-6 mb-6'>
             <div className='flex flex-row  gap-3 justify-center items-center'>
-                <CTAButton active={ctabtn1.active} linkto={ctabtn1.linkto}>{ctabtn1.text}
-                <FaArrowRight/>
+                <CTAButton active={ctabtn1.active} linkto={ctabtn1.linkto}>
+                    {ctabtn1.text}
+                    <FaArrowRight/>
                 </CTAButton>
             </div>
             <div>
-               <CTAButton active={ctabtn2.active} linkto={ctabtn2.linkto}>{ctabtn2.text}</CTAButton>
+               <CTAButton active={ctabtn2.active} linkto={ctabtn2.linkto}>
+                {ctabtn2.text}
+                </CTAButton>
             </div>
             
         </div>

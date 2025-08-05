@@ -27,7 +27,7 @@ function CodeBlock({code, codeColor }) {
 
         <div className={`w-[90%] flex flex-col gap-1 font-bold font-mono ${codeColor} pr-2`}>
           <TypeAnimation
-            sequence={[code,500,""]}
+            sequence={[code,500,""]}           // here code is comes from home.js file 
             repeat={Infinity}
             omitDeletionAnimation={true}
             cursor={true}
