@@ -9,7 +9,7 @@ import  rootReducer  from "./reducer";
 import { Toaster } from "react-hot-toast";
 
 const store = configureStore({  
-    reducer: rootReducer,
+    reducer: rootReducer,  // ye rootReducer reducer folder ke andar index.js file me likhe huye h;
 });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
